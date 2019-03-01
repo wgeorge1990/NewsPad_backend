@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users do
+    resources :favorites do
+     resources :comments
+    end
+  end
+
+
+
+    # resources :users, only: [:index, :create]
+  # resources :favorites, :comments
+  # resources :comments
+
+
+  # get '/users' 
 end
