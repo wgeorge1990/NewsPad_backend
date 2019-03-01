@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_175448) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+    t.string "comment"
     t.integer "user_id"
     t.integer "favorite_id"
     t.datetime "created_at", null: false
@@ -25,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_03_01_175448) do
   create_table "favorites", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
-    t.integer "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_175448) do
     t.string "first_name"
     t.string "last_name"
     t.string "user_name"
-    t.string "password_digest"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
