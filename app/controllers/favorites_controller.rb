@@ -2,28 +2,20 @@ class FavoritesController < ApplicationController
 
     def index
         @favorites = Favorite.all
-        render json: @favorites.to_json(include: [comments: { only: [:content] }])
-    end
-
-    def show
-        @favorites = Favorite.find(params[:id])
-        render json: @favorites.to_json(include:[:content])
+        render json: @favorites
     end
 
     def create
-        @favorite = Favorite.find(comment_params['favorite'])
-        @comment = Comment.new(content: comment_params['content'])
-        @favorite.comments << @comment
-        if @comment.save
-            render json: @comment
+        @favorite = Favorite.new(favorite_params)
+        if @favorite.save
+            render json: @favorite
         else
-            render json: @comment.errors.full_messages
+           return "Me no save"
         end
     end
 
     private
-
-    def comment_params
-        params.permit(:content, :favorite)
+    def favorite_params
+        params.require(:favorite).permit(:title, :url, :image_url, :user_id)
     end
 end

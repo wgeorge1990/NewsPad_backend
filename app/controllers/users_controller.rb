@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
 
     def index
-        @user = User.find(params[:id])
+       render json: @user = User.all
     end
+
+
 
     def create
         @user = User.new(user_params)
         if @user.save
-            redirect_to user_path(@user)
+            render json: @user
         else
            return "Me no save"
         end

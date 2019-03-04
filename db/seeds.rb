@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 blair = User.create(first_name: 'Blair', last_name: 'Carroll', user_name: 'bcarrol2', password: 'cookies1')
-will = User.create(first_name: 'Will', last_name: 'George', user_name: 'willfarrell2', password: 'cookies1')
+will = User.create(first_name: 'Will', last_name: 'George', user_name: 'willfarrell2', password: 'cookies2')
 
 fav1 = Favorite.create(title: 'New tesla', user_id: 1)
 fav2 = Favorite.create(title: 'Semantic stuff', user_id: 2)
