@@ -7,12 +7,4 @@ Rails.application.routes.draw do
     end
   end
 
-
-
-    # resources :users, only: [:index, :create]
-  # resources :favorites, :comments
-  # resources :comments
-
-
-  # get '/users' 
 end
