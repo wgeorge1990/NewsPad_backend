@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        @favorite = Favorite.new(favorite_params)
+        @favorite = Favorite.new(title: favorite_params['title'], url: favorite_params['url'], image_url: favorite_params['image_url'], user_id: favorite_params['user_id'])
         if @favorite.save
             render json: @favorite
         else
@@ -19,4 +19,3 @@ class FavoritesController < ApplicationController
         params.permit(:title, :url, :image_url, :user_id)
     end
 end
-# title: favorite_params['title'], url: favorite_params['url'], image_url: favorite_params['image_url'], user_id: favorite_params['user_id']
